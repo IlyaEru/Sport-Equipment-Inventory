@@ -1,0 +1,59 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="delete-container">
+
+  <h1 class="hero">
+    <%= title %>
+  </h1>
+  <section class="delete-wrapper">
+    <article class="secondary-info__wrapper">
+      <p class="secondary-info">
+        <strong class="secondary-info__label">Category:</strong>
+        <%= equipment.category.name %>
+      </p>
+      <p class="secondary-info">
+        <strong class="secondary-info__label">Description: </strong><%= equipment.description %>
+      </p>
+      <p class="secondary-info">
+        <strong class="secondary-info__label">Price:</strong>
+        <%= equipment.price %>
+      </p>
+    </article>
+    <% if (equipmentInventory.length> 0) {%>
+    <p class="association-info">
+      This equipment is currently associated with these inventory records:
+    </p>
+    <ul class="association-list">
+      <% equipmentInventory.forEach(equipmentRecord=> { %>
+
+      <li>
+        <a class="link-primary" href="/inventory/<%= equipmentRecord.id %>">
+          <strong>Quantity:</strong>
+          <%= equipmentRecord.quantity %>
+          <strong>Location:</strong>
+          <%= equipmentRecord.location.address %>
+        </a>
+      </li>
+
+      <% } ) %>
+    </ul>
+    <p class="association-warning">
+      <strong>Warning!</strong> Deleting this equipment will also delete all inventory records associated
+      with
+      this equipment.
+    </p>
+    <% } else { %>
+    <p class="association-info">
+      This equipment is not associated with any inventory records.
+    </p>
+    <% } %>
+    <p>
+      Do you want to delete this equipment?
+    </p>
+    <form action="/equipment/<%= equipment.id %>/delete" method="POST">
+      <button class="btn-danger" type="submit">Delete Equipment</button>
+    </form>
+
+  </section>
+</main>
+<%- include('../partials/footer.ejs') %>

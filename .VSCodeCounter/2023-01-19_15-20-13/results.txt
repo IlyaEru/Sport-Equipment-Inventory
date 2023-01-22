@@ -1,0 +1,52 @@
+Date : 2023-01-19 15:20:13
+Directory : /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components
+Total : 23 files,  1108 codes, 19 comments, 159 blanks, all 1286 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| TypeScript |         23 |      1,108 |         19 |        159 |      1,286 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                          | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                             |         23 |      1,108 |         19 |        159 |      1,286 |
+| category                                                                                                      |          5 |        212 |          3 |         32 |        247 |
+| equipment                                                                                                     |          5 |        304 |          3 |         39 |        346 |
+| home                                                                                                          |          3 |         32 |          2 |         10 |         44 |
+| inventory                                                                                                     |          5 |        303 |          8 |         43 |        354 |
+| location                                                                                                      |          5 |        257 |          3 |         35 |        295 |
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                      | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/category/category.controller.ts   | TypeScript |        165 |          0 |         11 |        176 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/category/category.model.ts        | TypeScript |         21 |          3 |          6 |         30 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/category/category.route.ts        | TypeScript |         21 |          0 |         12 |         33 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/category/category.type.ts         | TypeScript |          3 |          0 |          1 |          4 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/category/index.ts                 | TypeScript |          2 |          0 |          2 |          4 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/equipment/equipment.controller.ts | TypeScript |        223 |          0 |         15 |        238 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/equipment/equipment.model.ts      | TypeScript |         52 |          3 |          9 |         64 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/equipment/equipment.route.ts      | TypeScript |         21 |          0 |         12 |         33 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/equipment/equipment.type.ts       | TypeScript |          6 |          0 |          1 |          7 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/equipment/index.ts                | TypeScript |          2 |          0 |          2 |          4 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/home/home.controller.ts           | TypeScript |         25 |          2 |          4 |         31 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/home/home.route.ts                | TypeScript |          5 |          0 |          4 |          9 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/home/index.ts                     | TypeScript |          2 |          0 |          2 |          4 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/inventory/index.ts                | TypeScript |          2 |          0 |          2 |          4 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/inventory/inventory.controller.ts | TypeScript |        221 |          0 |         15 |        236 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/inventory/inventory.model.ts      | TypeScript |         52 |          8 |         12 |         72 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/inventory/inventory.route.ts      | TypeScript |         21 |          0 |         12 |         33 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/inventory/inventory.type.ts       | TypeScript |          7 |          0 |          2 |          9 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/location/index.ts                 | TypeScript |          2 |          0 |          2 |          4 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/location/location.controller.ts   | TypeScript |        193 |          0 |         13 |        206 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/location/location.model.ts        | TypeScript |         34 |          3 |          6 |         43 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/location/location.route.ts        | TypeScript |         21 |          0 |         12 |         33 |
+| /home/ilya/Documents/node/projects/sport-equipment-inventory/src/components/location/location.type.ts         | TypeScript |          7 |          0 |          2 |          9 |
+| Total                                                                                                         |            |      1,108 |         19 |        159 |      1,286 |
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

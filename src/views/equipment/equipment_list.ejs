@@ -1,0 +1,29 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="list-container">
+  <h1 class="hero"><%= title %> </h1>
+  <section>
+    <% if (equipmentList.length === 0) { %>
+    <h2>
+      No equipment found.
+    </h2>
+    <% } else { %>
+    <ul class="list-container__list">
+      <% equipmentList.forEach(equipment => { %>
+      <li class="list-container__list-item">
+        <a href="/equipment/<%= equipment.id %>">
+          <%= equipment.name %>
+        </a>
+        <p class="secondary-info">
+          <strong>Category: </strong><%= equipment.category.name%>
+        </p>
+        <p class="secondary-info">
+          <strong>Price: </strong><%= equipment.price  %>$
+        </p>
+      </li>
+      <% }) %>
+    </ul>
+    <% } %>
+  </section>
+</main>
+<%- include('../partials/footer.ejs') %>

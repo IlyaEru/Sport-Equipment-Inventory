@@ -1,0 +1,58 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="details-container">
+
+  <h1 class="hero">
+    <%= title %>
+  </h1>
+  <section class="details-wrapper">
+    <p class="secondary-info">
+      <strong class="secondary-info__label">
+        Address:
+      </strong>
+      <%= location.address %>
+    </p>
+
+    <h2 class="details-header secondary-header">inventory</h2>
+    <% if(locationInventory.length === 0) {%>
+    <h3 class="details-header secondary-header">
+      No inventory found.
+    </h3>
+    <% } else { %>
+    <ul class="details-list">
+      <% locationInventory.forEach(inventory => { %>
+      <li class="details-list__item">
+        <div class="field-wrapper">
+          <span class="field-label">
+            Equipment:
+          </span>
+          <a href="/equipment/<%= inventory.equipment.id %>">
+            <%= inventory.equipment.name %>
+          </a>
+        </div>
+        <div class="field-wrapper">
+          <span class="field-label">
+            Quantity:
+          </span>
+          <%= inventory.quantity %>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+    <% } %>
+
+  </section>
+  <section class="btn-wrapper">
+    <a href="/location/<%=location.id  %>/update">
+      <button class="btn-primary">
+        Update Location
+      </button>
+    </a>
+    <a href="/location/<%=location.id  %>/delete">
+      <button class="btn-danger">
+        Delete Location
+      </button>
+    </a>
+  </section>
+</main>
+<%- include('../partials/footer.ejs') %>

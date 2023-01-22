@@ -1,0 +1,51 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="details-container">
+  <h1 class="hero"><%= title %></h1>
+  <section class="details-wrapper">
+    <h2 class="details-header secondary-header">Equipments</h2>
+    <% if (categoryEquipments.length === 0) {%>
+    <h2 class="details-header secondary-header">No equipment found.</h2>
+    <% } else { %>
+    <ul class="details-list">
+      <% categoryEquipments.forEach(equipment => { %>
+      <li class="details-list__item">
+        <div class="field-wrapper">
+          <span class="field-label">
+            Equipment:
+          </span>
+          <a class="link-primary" href="/equipment/<%= equipment.id %>"> <%= equipment.name %> </a>
+        </div>
+        <div class="field-wrapper">
+          <span class="field-label">
+            Description:
+          </span>
+          <%= equipment.description %>
+        </div>
+        <div class="field-wrapper">
+          <span class="field-label">
+            Price:
+          </span>
+          <%= equipment.price %>$
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+    <% } %>
+  </section>
+  <section class="btn-wrapper">
+
+
+    <a href="<%=category.id  %>/update">
+      <button class="btn-primary">
+        Update Category
+      </button>
+    </a>
+    <a href="<%=category.id  %>/delete">
+      <button class="btn-danger">
+        Delete Category
+      </button>
+    </a>
+  </section>
+</main>
+<%- include('../partials/footer.ejs') %>

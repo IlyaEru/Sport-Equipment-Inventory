@@ -1,0 +1,34 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="form-container">
+
+  <h1 class="hero">
+    <%= title %>
+  </h1>
+
+  <form action="" method="post" class="form">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input required type="text" id="name" name="name" value="<%= (typeof name != "undefined" ? name : "" )
+                    %>" placeholder="Archery, Climbing etc.">
+    </div>
+
+    <button class="btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
+  <% if (typeof errors !="undefined" && errors.length> 0) {%>
+  <div class="errors form__errors-container">
+    <h3 class="form__errors-header">class="form"class="form":</h3>
+
+    <ul class="form__errors-list">
+      <% errors.forEach(error=> { %>
+      <li class="form__errors-list-item">
+        <%= error.msg %>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+  <% } %>
+
+</main>
+<%- include('../partials/footer.ejs') %>

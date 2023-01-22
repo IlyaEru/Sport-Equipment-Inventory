@@ -1,0 +1,54 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="form-container">
+
+  <h1 class="hero">
+    <%= title %>
+  </h1>
+
+  <form action="" method="post" class="form">
+    <div class="form-group">
+      <label for="equipment">Equipment</label>
+      <select name="equipment" id="equipment" required>
+        <option value="" hidden>Select a equipment</option>
+        <% equipmentList.forEach(equipment=> { %>
+        <option value="<%= equipment.id %>" <%=(typeof equipment_id !="undefined" && equipment_id==equipment.id
+                            ? "selected" : "" ) %>><%= equipment.name %>
+        </option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <select name="location" id="location" required>
+        <option value="" hidden>Select a location</option>
+        <% locationList.forEach(location=> { %>
+        <option value="<%= location.id %>" <%=(typeof location_id !="undefined" && location_id==location.id
+                            ? "selected" : "" ) %>><%= location.name %>
+        </option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" value="<%= (typeof quantity != "undefined" ? quantity : "") %>" placeholder="Quantity" required>
+    </div>
+
+    <button class="btn-primary" type="submit">Submit</button>
+
+  </form>
+  <% if (typeof errors !="undefined" && errors.length> 0) {%>
+  <div class="errors form__errors-container">
+    <h3 class="form__errors-header">Errors:</h3>
+    <ul class="form__errors-list">
+      <% errors.forEach(error=> { %>
+      <li class="form__errors-list-item">
+        <%= error.msg %>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+  <% } %>
+
+</main>
+<%- include('../partials/footer.ejs') %>

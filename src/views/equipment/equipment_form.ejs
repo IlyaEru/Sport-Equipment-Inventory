@@ -1,0 +1,51 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="form-container">
+  <h1 class="hero">
+    <%= title %>
+  </h1>
+
+  <form action="" method="post" class="form">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" value="<%= (typeof name != "undefined" ? name : "" ) %>" placeholder="Equipment Name" required>
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select name="category" id="category" required>
+        <option value="" hidden>Select a category</option>
+        <% categoryList.forEach(category=> { %>
+        <option value="<%= category.id %>" <%=typeof selectedCategoryId !="undefined" &&
+                            category.id===selectedCategoryId ? 'selected' : '' %>>
+          <%= category.name %>
+        </option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea type="text" id="description" name="description" required>
+<%= (typeof description !="undefined" ? description : "" ) %></textarea>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" id="price" name="price" value="<%= (typeof price !=
+      "undefined" ? price : "" ) %>" placeholder="Price" required>
+    </div>
+
+    <button class="btn-primary" type="submit">Submit</button>
+  </form>
+  <% if (typeof errors !="undefined" && errors.length> 0) {%>
+  <div class="errors form__errors-container"">
+    <h3 class=" form__errors-header">Errors:</h3>
+    <ul class="form__errors-list">
+      <% errors.forEach(error=> { %>
+      <li class="form__errors-list-item">
+        <%= error.msg %>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+  <% } %>
+</main>
+<%- include('../partials/footer.ejs') %>

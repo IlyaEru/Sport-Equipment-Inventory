@@ -1,0 +1,60 @@
+<%- include('../partials/header.ejs') %>
+<main class="details-container">
+  <h1 class="hero">
+    <%= title %>
+  </h1>
+  <section class="details-wrapper no-list">
+    <h2 class="details-header secondary-header">Equipment</h2>
+    <p class="field-wrapper">
+      <strong class="field-label">Name:</strong>
+      <a href="/equipment/<%= inventoryEquipment.id %>">
+        <%= inventoryEquipment.name %>
+      </a>
+    </p>
+    <p class="field-wrapper">
+      <strong class="field-label">Category:</strong>
+      <a href="/category/<%= inventoryEquipment.category.id %>">
+        <%= inventoryEquipment.category.name %>
+      </a>
+    </p>
+    <p class="field-wrapper">
+      <strong class="field-label">Description:</strong>
+      <%= inventoryEquipment.description %>
+    </p>
+    <p class="field-wrapper">
+      <strong class="field-label">Price:</strong>
+      <%= inventoryEquipment.price %>
+    </p>
+    <h2 class="details-header secondary-header">
+      Location
+    </h2>
+    <p class="field-wrapper">
+      <strong class="field-label">Name:</strong>
+      <a href="/location/<%= inventoryLocation.id %>">
+        <%= inventoryLocation.name %>
+      </a>
+    </p>
+    <p class="field-wrapper">
+      <strong class="field-label">Address:</strong>
+      <%= inventoryLocation.address %>
+    </p>
+
+    <h2 class="details-header secondary-header">Quantity: <span class="quantity-value"><%= inventory.quantity %></span>
+    </h2>
+
+
+  </section>
+  <section class="btn-wrapper">
+    <a href="<%=inventory.id %>/update">
+      <button class="btn-primary">
+        Update Inventory
+      </button>
+    </a>
+    <a href="<%=inventory.id %>/delete">
+      <button class="btn-danger">
+        Delete Inventory
+      </button>
+    </a>
+  </section>
+</main>
+<%- include('../partials/footer.ejs') %>

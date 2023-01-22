@@ -1,0 +1,48 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="delete-container">
+
+  <h1 class="hero">
+    <%= title %>
+  </h1>
+  <section class="delete-wrapper">
+    <p class="secondary-info">
+      <strong class="secondary-info__label">Address: </strong>
+      <%= location.address %>
+    </p>
+
+
+    <% if (locationInventory.length> 0) {%>
+    <p class="association-info">
+      This location is currently associated with these inventory Equipments:
+    </p>
+    <ul class="association-list">
+      <% locationInventory.forEach(inventory=> { %>
+      <li>
+        <a class="link-primary" href="/inventory/<%= inventory.id %>">
+          <%= inventory.quantity %>
+          <%= inventory.equipment.name %>
+
+        </a>
+      </li>
+      <% }) %>
+    </ul>
+    <p class="association-warning">
+      <strong>Warning!</strong> Deleting this location will also delete the inventory items associated
+      with it.
+    </p>
+    <% } else { %>
+    <p class="association-info">
+      This location is not associated with any inventory items.
+    </p>
+    <% } %>
+    <p>
+      Do you want to delete this location?
+    </p>
+    <form action="/location/<%= location.id %>/delete" method="POST">
+      <button class="btn-danger" type="submit">Delete Location</button>
+    </form>
+
+  </section>
+</main>
+<%- include('../partials/footer.ejs') %>

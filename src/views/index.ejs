@@ -1,0 +1,77 @@
+<%- include('./partials/header.ejs') %>
+
+
+<main class="home-container">
+  <section class="img-container"></section>
+  <section class="content-container">
+    <header>
+      <img class="content-container-header-logo" src="/images/logo.png" alt="logo">
+    </header>
+    <p class="content__description">Athlete Arsenal is a web app that helps you manage your equipment inventory. </p>
+    <section class="inventory-wrapper">
+      <h2 class="content__inventory-summary-header">Our current inventory includes</h2>
+      <ul class="inventory-list">
+        <li class="inventory-list-item">
+          <a class="inventory-list-item-link" href="/category">
+            <img class="inventory-list-item__img" src="/images/category.svg" alt="category">
+            <%= categoriesAmount %> categories
+          </a>
+        </li>
+        <li class="inventory-list-item">
+          <a class="inventory-list-item-link" href="/location">
+
+            <img class="inventory-list-item__img" src="/images/location.svg" alt="location">
+            <%= locationsAmount %> locations
+          </a>
+        </li>
+        <li class="inventory-list-item">
+          <a class="inventory-list-item-link" href="/equipment">
+            <img class="inventory-list-item__img" src="/images/equipment.svg" alt="equipment">
+            <%= equipmentsAmount %> equipments
+          </a>
+        </li>
+        <li class="inventory-list-item">
+          <a class="inventory-list-item-link" href="/inventory">
+
+            <img class="inventory-list-item__img" src="/images/inventory.svg" alt="inventory">
+            <%= inventoryAmount %> inventory records
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </section>
+  <section class="mobile-inventory-wrapper">
+    <h2 class="content__inventory-summary-header">Our current inventory includes</h2>
+    <ul class="inventory-list">
+      <li class="inventory-list-item">
+        <a class="inventory-list-item-link" href="/category">
+          <img class="inventory-list-item__img" src="/images/category.svg" alt="category">
+          <%= categoriesAmount %> categories
+        </a>
+      </li>
+      <li class="inventory-list-item">
+        <a class="inventory-list-item-link" href="/location">
+
+          <img class="inventory-list-item__img" src="/images/location.svg" alt="location">
+          <%= locationsAmount %> locations
+        </a>
+      </li>
+      <li class="inventory-list-item">
+        <a class="inventory-list-item-link" href="/equipment">
+          <img class="inventory-list-item__img" src="/images/equipment.svg" alt="equipment">
+          <%= equipmentsAmount %> equipments
+        </a>
+      </li>
+      <li class="inventory-list-item">
+        <a class="inventory-list-item-link" href="/inventory">
+
+          <img class="inventory-list-item__img" src="/images/inventory.svg" alt="inventory">
+          <%= inventoryAmount %> inventory records
+        </a>
+      </li>
+    </ul>
+  </section>
+
+</main>
+<%- include('./partials/footer.ejs') %>

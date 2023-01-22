@@ -1,0 +1,44 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="list-container">
+
+  <h1 class="hero">
+    <%= title %>
+  </h1>
+  <section class="inventory-section">
+    <% if (inventoryList.length===0) { %>
+    <h2>
+      No categories found.
+    </h2>
+    <% } else { %>
+    <ul class="list-container__list inventory-list">
+      <% inventoryList.forEach(inventory=> { %>
+      <li class="list-container__list-item">
+        <div class="list-field-wrapper secondary-info">
+          <strong>Equipment:</strong>
+          <a href="/equipment/<%= inventory.equipment.id %>">
+            <%= inventory.equipment.name %>
+          </a>
+        </div>
+        <div class="list-field-wrapper secondary-info">
+          <strong>Quantity:</strong>
+          <%= inventory.quantity %>
+        </div>
+        <div class="list-field-wrapper secondary-info">
+          <strong>location:</strong>
+          <a href="/location/<%= inventory.location.id %>">
+            <%= inventory.location.name %>
+          </a>
+        </div>
+        <a class="link-btn-wrapper" href="/inventory/<%=inventory.id %> ">
+          <button class="see-details-btn btn-primary">
+            See Details
+          </button>
+        </a>
+      </li>
+      <% }) %>
+    </ul>
+    <% } %>
+  </section>
+</main>
+<%- include('../partials/footer.ejs') %>

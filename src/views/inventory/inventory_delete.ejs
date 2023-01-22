@@ -1,0 +1,19 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="delete-container">
+
+  <h1 class="hero">
+    <%= title %>
+  </h1>
+  <section class="delete-wrapper">
+    <p class="secondary-info"> <strong class="secondary-info__label">Quantity:</strong> <%= inventory.quantity %>
+    </p>
+    <p>
+      Do you want to delete this inventory record?
+    </p>
+    <form action="/inventory/<%= inventory.id %>/delete " method="post">
+      <button class="btn-danger" type="submit">Delete Inventory</button>
+    </form>
+  </section>
+</main>
+<%- include('../partials/footer.ejs') %>

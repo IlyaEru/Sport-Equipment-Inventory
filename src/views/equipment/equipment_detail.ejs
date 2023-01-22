@@ -1,0 +1,33 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="details-container">
+  <h1 class="hero"><%= title %></h1>
+  <section class="details-wrapper no-list">
+    <p class="field-wrapper">
+      <strong class="field-label"> Description: </strong>
+      <%= equipment.description %>
+    </p>
+    <p class="field-wrapper">
+      <strong class="field-label"> Category: </strong>
+      <a class="link-primary" href="/category/<%= equipment.category._id  %>">
+        <%= equipment.category.name %></a>
+    </p>
+    <p class="field-wrapper">
+      <strong class="field-label"> Price: </strong>
+      <%= equipment.price %>
+    </p>
+  </section>
+  <section class="btn-wrapper">
+    <a href="/equipment/<%= equipment._id %>/update">
+      <button class="btn-primary">
+        Update Equipment
+      </button>
+    </a>
+    <a href="/equipment/<%= equipment._id %>/delete">
+      <button class="btn-danger">
+        Delete Equipment
+      </button>
+    </a>
+  </section>
+</main>
+<%- include('../partials/footer.ejs') %>

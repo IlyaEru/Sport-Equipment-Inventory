@@ -1,0 +1,25 @@
+<%- include('./partials/header.ejs') %>
+
+<main class="not-found-container">
+  <div class="not-found__content">
+    <h1 class="hero">
+      <%= title %>
+    </h1>
+
+    <h2 class="sub-header">
+      The page you're looking for is currently experiencing some technical difficulties.
+
+    </h2>
+    <h2 class="sub-header">
+      The error: <%= errorMessage %>
+    </h2>
+
+    <a class="link-btn-wrapper" href="/">
+      <button class=" btn-primary">
+        Return to Home
+      </button>
+
+  </div>
+
+</main>
+<%- include('./partials/footer.ejs') %>

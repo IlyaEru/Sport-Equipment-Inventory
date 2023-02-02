@@ -62,12 +62,28 @@ const getCreateEquipment = async (
 };
 
 const postCreateEquipment = [
-  body('name', 'Equipment name required').trim().isLength({ min: 1 }).escape(),
-  body('category', 'Category required').trim().isLength({ min: 1 }).escape(),
-  body('description', 'Description required')
+  body('name')
     .trim()
-    .isLength({ min: 3 })
-    .escape(),
+    .escape()
+    .not()
+    .isEmpty()
+    .bail()
+    .withMessage('Equipment name required')
+    .isLength({ min: 3, max: 50 })
+    .bail()
+    .withMessage('Equipment name must be between 3 and 50 characters'),
+  body('description')
+    .trim()
+    .escape()
+    .not()
+    .isEmpty()
+    .bail()
+    .withMessage('Equipment description required')
+    .isLength({ min: 3, max: 255 })
+    .bail()
+    .withMessage('Equipment description must be between 3 and 255 characters'),
+  body('category', 'Category required').trim().isLength({ min: 1 }).escape(),
+
   body('price', 'Price required').trim().isLength({ min: 1 }).escape(),
 
   async (
@@ -147,12 +163,28 @@ const getUpdateEquipment = async (
 };
 
 const postUpdateEquipment = [
-  body('name', 'Equipment name required').trim().isLength({ min: 1 }).escape(),
-  body('category', 'Category required').trim().isLength({ min: 1 }).escape(),
-  body('description', 'Description required')
+  body('name')
     .trim()
-    .isLength({ min: 3 })
-    .escape(),
+    .escape()
+    .not()
+    .isEmpty()
+    .bail()
+    .withMessage('Equipment name required')
+    .isLength({ min: 3, max: 50 })
+    .bail()
+    .withMessage('Equipment name must be between 3 and 50 characters'),
+  body('description')
+    .trim()
+    .escape()
+    .not()
+    .isEmpty()
+    .bail()
+    .withMessage('Equipment description required')
+    .isLength({ min: 3, max: 255 })
+    .bail()
+    .withMessage('Equipment description must be between 3 and 255 characters'),
+  body('category', 'Category required').trim().isLength({ min: 1 }).escape(),
+
   body('price', 'Price required').trim().isLength({ min: 1 }).escape(),
   body('price', 'Price must be a number').isNumeric(),
   body('price', 'Price must be greater than 0').isFloat({ gt: 0 }),

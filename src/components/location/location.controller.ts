@@ -57,11 +57,27 @@ const getCreateLocation = async (
 };
 
 const postCreateLocation = [
-  body('name', 'Name must not be empty.').trim().isLength({ min: 1 }).escape(),
-  body('address', 'Address must not be empty.')
+  body('name')
     .trim()
-    .isLength({ min: 1 })
-    .escape(),
+    .escape()
+    .not()
+    .isEmpty()
+    .bail()
+    .withMessage('Post name required')
+    .isLength({ min: 3, max: 50 })
+    .bail()
+    .withMessage('Post name must be between 3 and 50 characters'),
+  body('address')
+    .trim()
+    .escape()
+    .not()
+    .isEmpty()
+    .bail()
+    .withMessage('Post address required')
+    .isLength({ min: 3, max: 255 })
+    .bail()
+    .withMessage('Post address must be between 3 and 255 characters'),
+
   async (
     req: express.Request,
     res: express.Response,
@@ -127,11 +143,26 @@ const getUpdateLocation = async (
 };
 
 const postUpdateLocation = [
-  body('name', 'Name must not be empty.').trim().isLength({ min: 1 }).escape(),
-  body('address', 'Address must not be empty.')
+  body('name')
     .trim()
-    .isLength({ min: 1 })
-    .escape(),
+    .escape()
+    .not()
+    .isEmpty()
+    .bail()
+    .withMessage('Post name required')
+    .isLength({ min: 3, max: 50 })
+    .bail()
+    .withMessage('Post name must be between 3 and 50 characters'),
+  body('address')
+    .trim()
+    .escape()
+    .not()
+    .isEmpty()
+    .bail()
+    .withMessage('Post address required')
+    .isLength({ min: 3, max: 255 })
+    .bail()
+    .withMessage('Post address must be between 3 and 255 characters'),
   body('name').custom(async (value) => {
     const existingLocation = await Location.findOne({ name: value });
     if (existingLocation) {

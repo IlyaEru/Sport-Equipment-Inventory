@@ -67,7 +67,17 @@ const getCreateCategory = async (
 };
 
 const postCreateCategory = [
-  body('name', 'Category name required').trim().isLength({ min: 1 }).escape(),
+  body('name')
+    .trim()
+    .escape()
+    .not()
+    .isEmpty()
+    .bail()
+    .withMessage('Category name required')
+    .isLength({ min: 3, max: 50 })
+    .bail()
+    .withMessage('Category name must be between 3 and 50 characters'),
+
   async (
     req: express.Request,
     res: express.Response,
@@ -114,7 +124,16 @@ const getUpdateCategory = async (
 };
 
 const postUpdateCategory = [
-  body('name', 'Category name required').trim().isLength({ min: 1 }).escape(),
+  body('name')
+    .trim()
+    .escape()
+    .not()
+    .isEmpty()
+    .bail()
+    .withMessage('Category name required')
+    .isLength({ min: 3, max: 50 })
+    .bail()
+    .withMessage('Category name must be between 3 and 50 characters'),
   body('name').custom(async (value) => {
     const existingCategory = await Category.findOne({ name: value });
     if (existingCategory) {

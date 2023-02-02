@@ -285,18 +285,18 @@
 }
 
 @media screen and (min-width: 1000px) {
-  .no-webp .img-container {
+  .img-container {
     background-image: url("../images/home-bg.png");
   }
-  .webp .img-container {
+  .img-container {
     background-image: url("../images/home-bg.webp");
   }
 }
 @media screen and (max-width: 1000px) {
-  .no-webp .content-container {
+  .content-container {
     background-image: url("../images/mobile-home-bg.png");
   }
-  .webp .content-container {
+  .content-container {
     background-image: url("../images/mobile-home-bg.webp");
   }
 }

@@ -76,6 +76,17 @@ const postCreateEquipment = [
     next: express.NextFunction,
   ) => {
     const errors = validationResult(req);
+    const existingEquipment = await Equipment.findOne({
+      name: req.body.name,
+    });
+    const categoryList = await Category.find().sort('name');
+    if (existingEquipment) {
+      return res.render('equipment/equipment_form', {
+        title: 'Create Equipment',
+        categoryList,
+        errors: [{ msg: 'Equipment already exists' }],
+      });
+    }
     const equipment = new Equipment({
       name: req.body.name,
       category: req.body.category,
@@ -84,7 +95,6 @@ const postCreateEquipment = [
     });
     if (!errors.isEmpty()) {
       try {
-        const categoryList = await Category.find().sort('name');
         res.render('equipment/equipment_form', {
           categoryList,
           title: 'Create Equipment',
@@ -132,6 +142,7 @@ const getUpdateEquipment = async (
     selectedCategoryId,
     description,
     price,
+    update: true,
   });
 };
 
@@ -145,6 +156,16 @@ const postUpdateEquipment = [
   body('price', 'Price required').trim().isLength({ min: 1 }).escape(),
   body('price', 'Price must be a number').isNumeric(),
   body('price', 'Price must be greater than 0').isFloat({ gt: 0 }),
+  body('name').custom(async (value) => {
+    const existingEquipment = await Equipment.findOne({
+      name: value,
+    });
+    if (existingEquipment) {
+      throw new Error('Equipment already exists');
+    }
+    return true;
+  }),
+
   async (
     req: express.Request,
     res: express.Response,
@@ -174,6 +195,7 @@ const postUpdateEquipment = [
           selectedCategoryId,
           description,
           price,
+          update: true,
           errors: errors.array(),
         });
       } catch (error) {

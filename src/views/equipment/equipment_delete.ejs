@@ -50,10 +50,26 @@
     <p>
       Do you want to delete this equipment?
     </p>
-    <form action="/equipment/<%= equipment.id %>/delete" method="POST">
-      <button class="btn-danger" type="submit">Delete Equipment</button>
-    </form>
+
+    <button class="btn-danger delete-btn">Delete Equipment</button>
+
 
   </section>
+  <div class="admin-password-modal">
+    <div class="admin-password-modal__container">
+      <h2 class="admin-password-modal__header">Admin Password</h2>
+      <form class="admin-password-modal__form">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="password-input" type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <p class="modal-error"></p>
+        <div class="admin-password-modal__form-btn-wrapper">
+          <button class="btn-primary modal-submit-delete-btn">Submit</button>
+          <button class="btn-secondary modal-cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </main>
 <%- include('../partials/footer.ejs') %>

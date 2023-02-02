@@ -35,7 +35,7 @@
         padding: 1rem;
         color: #fff;
         font-weight: 500;
-        text-transform: capitalize;
+
         &:focus {
           outline: none;
           border: 1px solid var(--purple);
@@ -113,6 +113,117 @@
       color: #c0392b;
       font-weight: 500;
       text-transform: capitalize;
+    }
+  }
+}
+
+.admin-password-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  &.open {
+    display: flex;
+  }
+  .admin-password-modal__container {
+    margin-top: -10%;
+    background-color: #203436;
+    padding: 2rem 4rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.25);
+    transition: box-shadow 0.1s ease-in-out;
+    line-height: 1.5;
+    letter-spacing: 0.6px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .admin-password-modal__header {
+      color: var(--blue);
+      font-weight: 500;
+      text-transform: capitalize;
+      text-align: center;
+    }
+    .admin-password-modal__form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        label {
+          color: var(--orange);
+          font-weight: 500;
+          text-transform: capitalize;
+        }
+        input {
+          background-color: transparent;
+          border: 1px solid #4a6c6e;
+          border-radius: 5px;
+          padding: 1rem;
+          color: #fff;
+          font-weight: 500;
+          &:focus {
+            outline: none;
+            border: 1px solid var(--purple);
+          }
+          &::placeholder {
+            color: var(--white);
+            font-weight: 500;
+            text-transform: capitalize;
+          }
+        }
+      }
+      .admin-password-modal__form-btn-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+      }
+    }
+    @media screen and (max-width: 756px) {
+      padding: 2rem 2rem;
+      width: 22rem;
+      .admin-password-modal__header {
+        font-size: 1.2rem;
+      }
+      .admin-password-modal__form {
+        .form-group {
+          label {
+            font-size: 0.8rem;
+          }
+          input {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 556px) {
+      width: 16rem;
+      padding: 2rem 1rem;
+      .admin-password-modal__header {
+        font-size: 1rem;
+      }
+      .admin-password-modal__form {
+        .form-group {
+          label {
+            font-size: 0.7rem;
+          }
+          input {
+            font-size: 0.7rem;
+          }
+        }
+      }
+
+      .admin-password-modal__form .admin-password-modal__form-btn-wrapper {
+        gap: 1.5rem;
+      }
     }
   }
 }

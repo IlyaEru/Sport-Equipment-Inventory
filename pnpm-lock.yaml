@@ -1,9 +1,11 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/bcryptjs': ^2.4.2
   '@types/express': ^4.17.15
   '@types/jest': ^29.2.6
   '@types/node': ^18.11.18
+  bcryptjs: ^2.4.3
   dotenv: ^16.0.3
   ejs: ^3.1.8
   express: ^4.18.2
@@ -19,6 +21,7 @@ specifiers:
 
 dependencies:
   '@types/jest': 29.2.6
+  bcryptjs: 2.4.3
   dotenv: 16.0.3
   ejs: 3.1.8
   express: 4.18.2
@@ -30,6 +33,7 @@ dependencies:
   ts-jest: 29.0.5_p6ekqnroyms5nhqbfxosryz7rm
 
 devDependencies:
+  '@types/bcryptjs': 2.4.2
   '@types/express': 4.17.15
   '@types/node': 18.11.18
   nodemon: 2.0.20
@@ -1529,6 +1533,10 @@ packages:
       '@babel/types': 7.20.7
     dev: false
 
+  /@types/bcryptjs/2.4.2:
+    resolution: {integrity: sha512-LiMQ6EOPob/4yUL66SZzu6Yh77cbzJFYll+ZfaPiPPFswtIlA/Fs1MzdKYA7JApHU49zQTbJGX3PDmCpIdDBRQ==}
+    dev: true
+
   /@types/body-parser/1.19.2:
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
     dependencies:
@@ -1811,6 +1819,10 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    dev: false
+
+  /bcryptjs/2.4.3:
+    resolution: {integrity: sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==}
     dev: false
 
   /binary-extensions/2.2.0:

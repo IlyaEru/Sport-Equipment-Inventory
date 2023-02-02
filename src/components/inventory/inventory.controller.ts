@@ -136,6 +136,7 @@ const getUpdateInventory = async (
       quantity: inventory.quantity,
       location_id: inventory.location,
       equipment_id: inventory.equipment,
+      update: true,
     });
   } catch (error) {
     next(error);
@@ -170,6 +171,7 @@ const postUpdateInventory = [
         quantity: req.body.quantity,
         location_id: req.body.location,
         equipment_id: req.body.equipment,
+        update: true,
       });
     } else {
       const inventory = await Inventory.findById(req.params.id);

@@ -68,6 +68,15 @@ const postCreateLocation = [
     next: express.NextFunction,
   ) => {
     const errors = validationResult(req);
+    const existingLocation = await Location.findOne({
+      name: req.body.name,
+    });
+    if (existingLocation) {
+      return res.render('location/location_form', {
+        title: 'Create Location',
+        errors: [{ msg: 'Location already exists' }],
+      });
+    }
     const location = new Location({
       name: req.body.name,
       address: req.body.address,
@@ -110,6 +119,7 @@ const getUpdateLocation = async (
       name: location.name,
       address: location.address,
       location,
+      update: true,
     });
   } catch (err) {
     next(err);
@@ -122,6 +132,12 @@ const postUpdateLocation = [
     .trim()
     .isLength({ min: 1 })
     .escape(),
+  body('name').custom(async (value) => {
+    const existingLocation = await Location.findOne({ name: value });
+    if (existingLocation) {
+      throw new Error('Location already exists');
+    }
+  }),
   async (
     req: express.Request,
     res: express.Response,
@@ -142,6 +158,7 @@ const postUpdateLocation = [
         name,
         address,
         errors: errors.array(),
+        update: true,
       });
       return;
     }

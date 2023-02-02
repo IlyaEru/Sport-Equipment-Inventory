@@ -109,11 +109,18 @@ const getUpdateCategory = async (
   res.render('category/category_form', {
     title: 'Update Category',
     name: category.name,
+    update: true,
   });
 };
 
 const postUpdateCategory = [
   body('name', 'Category name required').trim().isLength({ min: 1 }).escape(),
+  body('name').custom(async (value) => {
+    const existingCategory = await Category.findOne({ name: value });
+    if (existingCategory) {
+      throw new Error('Category already exists');
+    }
+  }),
   async (
     req: express.Request,
     res: express.Response,
@@ -129,6 +136,7 @@ const postUpdateCategory = [
         title: 'Update Category',
         category,
         errors: errors.array(),
+        update: true,
       });
       return;
     }

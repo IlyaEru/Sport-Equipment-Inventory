@@ -59,6 +59,25 @@ main {
     background-color: #2a7ae2;
   }
 }
+// btn-secondary is outline primary btn
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #20519d;
+  cursor: pointer;
+  align-self: center;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-transform: capitalize;
+
+  font-weight: 600;
+  font-size: 1rem;
+  color: #2a7ae2;
+  text-decoration: none;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.103);
+  }
+}
 
 .btn-danger {
   background-color: #d9534f;
